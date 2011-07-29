@@ -1,0 +1,61 @@
+{% extends "AristosConsilioBundle::layout.html.twig" %}
+
+{% block content %}
+<h1>Material list</h1>
+
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Accesslevel</th>
+            <th>Type</th>
+            <th>Lang</th>
+            <th>Commentscount</th>
+            <th>Memberscount</th>
+            <th>Viewscount</th>
+            <th>Bookmarkscount</th>
+            <th>Createdat</th>
+            <th>Updatedat</th>
+            <th>Tagscount</th>
+            <th>Id</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('material_show', { 'id': entity.id }) }}">{{ entity.title }}</a></td>
+            <td>{{ entity.accessLevel }}</td>
+            <td>{{ entity.type }}</td>
+            <td>{{ entity.lang }}</td>
+            <td>{{ entity.commentsCount }}</td>
+            <td>{{ entity.membersCount }}</td>
+            <td>{{ entity.viewsCount }}</td>
+            <td>{{ entity.bookmarksCount }}</td>
+            <td>{{ entity.createdAt|date('Y-m-d H:i:s') }}</td>
+            <td>{{ entity.updatedAt|date('Y-m-d H:i:s') }}</td>
+            <td>{{ entity.tagsCount }}</td>
+            <td>{{ entity.id }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('material_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('material_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('material_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>
+{% endblock %}
