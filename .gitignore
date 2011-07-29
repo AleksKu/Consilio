@@ -1,5 +1,4 @@
-.idea
-web/bundles/
+.idea/
 app/bootstrap*
 app/cache/*
 app/logs/*
