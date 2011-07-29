@@ -1,0 +1,73 @@
+<h1>Material</h1>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Title</th>
+            <td>{{ entity.title }}</td>
+        </tr>
+        <tr>
+            <th>Accesslevel</th>
+            <td>{{ entity.accessLevel }}</td>
+        </tr>
+        <tr>
+            <th>Type</th>
+            <td>{{ entity.type }}</td>
+        </tr>
+        <tr>
+            <th>Lang</th>
+            <td>{{ entity.lang }}</td>
+        </tr>
+        <tr>
+            <th>Commentscount</th>
+            <td>{{ entity.commentsCount }}</td>
+        </tr>
+        <tr>
+            <th>Memberscount</th>
+            <td>{{ entity.membersCount }}</td>
+        </tr>
+        <tr>
+            <th>Viewscount</th>
+            <td>{{ entity.viewsCount }}</td>
+        </tr>
+        <tr>
+            <th>Bookmarkscount</th>
+            <td>{{ entity.bookmarksCount }}</td>
+        </tr>
+        <tr>
+            <th>Createdat</th>
+            <td>{{ entity.createdAt|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr>
+            <th>Updatedat</th>
+            <td>{{ entity.updatedAt|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr>
+            <th>Tagscount</th>
+            <td>{{ entity.tagsCount }}</td>
+        </tr>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('material') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('material_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('material_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>

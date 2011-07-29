@@ -2,14 +2,6 @@ _welcome:
     pattern:  /
     defaults: { _controller: AcmeDemoBundle:Welcome:index }
 
-_demo_secured:
-    resource: "@AcmeDemoBundle/Controller/SecuredController.php"
-    type:     annotation
-
-_demo:
-    resource: "@AcmeDemoBundle/Controller/DemoController.php"
-    type:     annotation
-    prefix:   /demo
 
 _assetic:
     resource: .
@@ -31,7 +23,10 @@ _main:
     resource: routing.yml
 
 
-_forum:
-    resource: "@NulliForumBundle/Controller/ForumController.php"
-    type:     annotation
-    prefix:   /forum
+_consilio:
+    resource: "@AristosConsilioBundle/Resources/config/routing.xml"
+    prefix:   /consilio
+
+    
+
+

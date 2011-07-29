@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Aristos\ConsilioBundle\Entity\Material" table="material">
+    <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="title" type="string" column="title" length="255"/>
+    <field name="accessLevel" type="boolean" column="access_level"/>
+    <field name="type" type="boolean" column="type"/>
+    <field name="lang" type="string" column="lang" length="3"/>
+    <field name="commentsCount" type="integer" column="comments_count"/>
+    <field name="membersCount" type="integer" column="members_count"/>
+    <field name="viewsCount" type="integer" column="views_count"/>
+    <field name="bookmarksCount" type="integer" column="bookmarks_count"/>
+    <field name="createdAt" type="datetime" column="created_at"/>
+    <field name="updatedAt" type="datetime" column="updated_at"/>
+    <field name="tagsCount" type="integer" column="tags_count"/>
+    <many-to-one field="author" target-entity="User" orphan-removal="">
+      <join-columns>
+        <join-column name="author_id" referenced-column-name="id"/>
+      </join-columns>
+
+    </many-to-one>
+   <one-to-many field="comments" target-entity="Comment" orphan-removal="" />
+
+
+
+    <many-to-one field="category" target-entity="Category" orphan-removal="">
+      <join-columns>
+        <join-column name="category_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <lifecycle-callbacks/>
+  </entity>
+</doctrine-mapping>
