@@ -1,3 +1,0 @@
-forum:
-    pattern:  /forum
-    defaults: { _controller: NulliForumBundle:Forum:index }
