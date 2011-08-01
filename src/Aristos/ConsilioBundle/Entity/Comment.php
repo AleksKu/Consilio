@@ -3,150 +3,67 @@
 namespace Aristos\ConsilioBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use FOS\CommentBundle\Entity\Comment as BaseComment;
 /**
  * Aristos\ConsilioBundle\Entity\Comment
  */
-class Comment
+
+
+class Comment extends BaseComment
 {
-    /**
-     * @var text $body
-     */
-    private $body;
+
+    protected $id;
 
     /**
-     * @var datetime $createdAt
-     */
-    private $createdAt;
-
-    /**
-     * @var datetime $updatedAt
-     */
-    private $updatedAt;
-
-    /**
-     * @var integer $id
-     */
-    private $id;
-
-    /**
-     * @var Aristos\ConsilioBundle\Entity\Comment
-     */
-    private $author;
-
-    /**
-     * @var Aristos\ConsilioBundle\Entity\Material
-     */
-    private $material;
-
-
-    /**
-     * Set body
+     * Author of the comment
      *
-     * @param text $body
+     * @var User
      */
-    public function setBody($body)
-    {
-        $this->body = $body;
-    }
+    protected $author;
+
 
     /**
-     * Get body
-     *
-     * @return text 
+     * @param User
      */
-    public function getBody()
-    {
-        return $this->body;
-    }
-
-    /**
-     * Set createdAt
-     *
-     * @param datetime $createdAt
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    /**
-     * Get createdAt
-     *
-     * @return datetime 
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * Set updatedAt
-     *
-     * @param datetime $updatedAt
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-    }
-
-    /**
-     * Get updatedAt
-     *
-     * @return datetime 
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
-    }
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set author
-     *
-     * @param Aristos\ConsilioBundle\Entity\Comment $author
-     */
-    public function setAuthor(\Aristos\ConsilioBundle\Entity\Comment $author)
+    public function setAuthor($author)
     {
         $this->author = $author;
     }
 
     /**
-     * Get author
-     *
-     * @return Aristos\ConsilioBundle\Entity\Comment 
+     * Get authorName
+     * @return string
      */
-    public function getAuthor()
+    public function getAuthorName()
     {
-        return $this->author;
+        return $this->getAuthor()->getUsername();
     }
 
     /**
-     * Set material
+     * Comment voting score.
      *
-     * @param Aristos\ConsilioBundle\Entity\Material $material
+     * @MongoDB\Field(type="int")
+     * @var integer
      */
-    public function setMaterial(\Aristos\ConsilioBundle\Entity\Material $material)
+    protected $score;
+
+    /**
+     * Sets the current comment score.
+     *
+     * @param integer $score
+     */
+    public function setScore($score)
     {
-        $this->material = $material;
+        $this->score = intval($score);
     }
 
     /**
-     * Get material
+     * Gets the current comment score.
      *
-     * @return Aristos\ConsilioBundle\Entity\Material 
+     * @return integer
      */
-    public function getMaterial()
+    public function getScore()
     {
-        return $this->material;
+        return $this->score;
     }
 }

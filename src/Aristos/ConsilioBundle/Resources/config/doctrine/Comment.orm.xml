@@ -5,17 +5,10 @@
     <id name="id" type="integer" column="id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="body" type="text" column="body"/>
-    <field name="createdAt" type="datetime" column="created_at"/>
-    <field name="updatedAt" type="datetime" column="updated_at"/>
+
     <many-to-one field="author" target-entity="Comment" orphan-removal="">
       <join-columns>
         <join-column name="author_id" referenced-column-name="id"/>
-      </join-columns>
-    </many-to-one>
-    <many-to-one field="material" target-entity="Material" orphan-removal="">
-      <join-columns>
-        <join-column name="material_id" referenced-column-name="id"/>
       </join-columns>
     </many-to-one>
     <lifecycle-callbacks/>

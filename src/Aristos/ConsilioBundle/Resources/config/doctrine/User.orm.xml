@@ -5,16 +5,6 @@
     <id name="id" type="integer" column="id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="email" type="string" column="email" length="255"/>
-    <field name="firstName" type="string" column="first_name" length="255"/>
-    <field name="lastName" type="string" column="last_name" length="255"/>
-    <field name="middleName" type="string" column="middle_name" length="255"/>
-    <field name="password" type="string" column="password" length="255"/>
-    <field name="passwordSalt" type="string" column="password_salt" length="8"/>
-    <field name="materialsCount" type="integer" column="materials_count"/>
-    <field name="commentsCount" type="integer" column="comments_count"/>
-    <field name="notificationsCount" type="integer" column="notifications_count"/>
-    <field name="bookmarksCount" type="integer" column="bookmarks_count"/>
     <lifecycle-callbacks/>
   </entity>
 </doctrine-mapping>
