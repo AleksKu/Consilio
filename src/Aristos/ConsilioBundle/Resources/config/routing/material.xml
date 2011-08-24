@@ -35,4 +35,9 @@
         <requirement key="_method">post</requirement>
     </route>
 
+
+        <route id="material_test" pattern="/test">
+        <default key="_controller">AristosConsilioBundle:Material:test</default>
+    </route>
+
 </routes>

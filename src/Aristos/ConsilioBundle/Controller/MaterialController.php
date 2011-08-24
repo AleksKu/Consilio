@@ -4,8 +4,9 @@ namespace Aristos\ConsilioBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use Aristos\ConsilioBundle\Entity\Material;
+use Aristos\ConsilioBundle\Entity\News;
 use Aristos\ConsilioBundle\Form\MaterialType;
+use DateTime;
 
 /**
  * Material controller.
@@ -187,12 +188,32 @@ class MaterialController extends Controller
 
     public function testAction()
     {
-        $entity  = new Material();
+       /* $em = $this->getDoctrine()->getEntityManager();
+        $entity  = new News();
 
+       $user = $em->getRepository('AristosConsilioBundle:User')->find(1);
+       $entity->setLang('RU');
+       $entity->setCreatedAt(new DateTime());
+       $entity->setUpdatedAt(new DateTime());
 
-         $em = $this->getDoctrine()->getEntityManager();
+        $entity->setAuthor($user);
+        $entity->setContent('test conent');
+
          $em->persist($entity);
-         $em->flush();
+         $em->flush();*/
+
+        $em = $this->getDoctrine()->getEntityManager();
+        $material = $em->getRepository('AristosConsilioBundle:Material')->find(2);
+        
+
+
+        $deleteForm = $this->createDeleteForm(2);
+
+        return $this->render('AristosConsilioBundle:Material:show.html.twig', array(
+            'entity'      => $material,
+            'delete_form' => $deleteForm->createView(),
+
+        ));
 
     }
 }

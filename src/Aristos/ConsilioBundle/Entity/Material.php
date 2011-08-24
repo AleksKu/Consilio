@@ -4,26 +4,18 @@ namespace Aristos\ConsilioBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use DateTime;
 
 /**
  * Aristos\ConsilioBundle\Entity\Material
  */
 class Material
 {
-    /**
-     * @var string $title
-     */
-    private $title;
 
-    /**
-     * @var boolean $accessLevel
-     */
-    private $accessLevel;
 
-    /**
-     * @var boolean $type
-     */
-    private $type;
+
+
+
 
     /**
      * @var string $lang
@@ -33,22 +25,22 @@ class Material
     /**
      * @var integer $commentsCount
      */
-    private $commentsCount;
+    private $commentsCount = 0;
 
     /**
      * @var integer $membersCount
      */
-    private $membersCount;
+    private $membersCount = 0;
 
     /**
      * @var integer $viewsCount
      */
-    private $viewsCount;
+    private $viewsCount = 0;
 
     /**
      * @var integer $bookmarksCount
      */
-    private $bookmarksCount;
+    private $bookmarksCount = 0;
 
     /**
      * @var datetime $createdAt
@@ -63,7 +55,7 @@ class Material
     /**
      * @var integer $tagsCount
      */
-    private $tagsCount;
+    private $tagsCount = 0;
 
     /**
      * @var integer $id
@@ -90,68 +82,13 @@ class Material
     public function _construct()
     {
         $this->comments = new ArrayCollection();
+        $this->createdAt = new DateTime();
+        $this->updatedAt = new DateTime();
     }
 
 
-    /**
-     * Set title
-     *
-     * @param string $title
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-    }
 
-    /**
-     * Get title
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
 
-    /**
-     * Set accessLevel
-     *
-     * @param boolean $accessLevel
-     */
-    public function setAccessLevel($accessLevel)
-    {
-        $this->accessLevel = $accessLevel;
-    }
-
-    /**
-     * Get accessLevel
-     *
-     * @return boolean
-     */
-    public function getAccessLevel()
-    {
-        return $this->accessLevel;
-    }
-
-    /**
-     * Set type
-     *
-     * @param boolean $type
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-    }
-
-    /**
-     * Get type
-     *
-     * @return boolean
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * Set lang

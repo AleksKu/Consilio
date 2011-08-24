@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-  <entity name="Aristos\ConsilioBundle\Entity\Material" table="material">
+  <entity name="Aristos\ConsilioBundle\Entity\Material" table="material" inheritance-type="JOINED">
+      <discriminator-column name="type" type="string" />
+    <discriminator-map>
+        <discriminator-mapping value="news" class="Aristos\ConsilioBundle\Entity\News" />
+        <discriminator-mapping value="video" class="Aristos\ConsilioBundle\Entity\Video" />
+
+    </discriminator-map>
     <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
     <id name="id" type="integer" column="id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="title" type="string" column="title" length="255"/>
-    <field name="accessLevel" type="boolean" column="access_level"/>
-    <field name="type" type="boolean" column="type"/>
+  
     <field name="lang" type="string" column="lang" length="3"/>
     <field name="commentsCount" type="integer" column="comments_count"/>
     <field name="membersCount" type="integer" column="members_count"/>
@@ -28,4 +32,5 @@
     </many-to-one>
     <lifecycle-callbacks/>
   </entity>
+
 </doctrine-mapping>

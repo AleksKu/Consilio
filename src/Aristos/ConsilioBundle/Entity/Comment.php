@@ -9,6 +9,7 @@ use FOS\CommentBundle\Entity\Comment as BaseComment;
  */
 
 
+//class Comment extends BaseComment
 class Comment extends BaseComment
 {
 

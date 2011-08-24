@@ -10,9 +10,7 @@ class MaterialType extends AbstractType
     public function buildForm(FormBuilder $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('accessLevel')
-            ->add('type')
+            //->add('type')
             ->add('lang')
             ->add('commentsCount')
             ->add('membersCount')
