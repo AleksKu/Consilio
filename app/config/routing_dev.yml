@@ -27,6 +27,11 @@ _consilio:
     resource: "@AristosConsilioBundle/Resources/config/routing.xml"
     prefix:   /consilio
 
+
+_plaza:
+    resource: "@PlazaBundle/Resources/config/routing.xml"
+    prefix:   /plaza
+
     
 
 

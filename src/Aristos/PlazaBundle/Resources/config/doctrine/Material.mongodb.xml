@@ -1,0 +1,25 @@
+<doctrine-mongo-mapping xmlns="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xsi:schemaLocation="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping
+                    http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping.xsd
+http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping ">
+
+    <document name="Aristos\PlazaBundle\Document\Material" collection="materials"
+              repository-class="Aristos\PlazaBundle\Document\MaterialRepository"
+            inheritance-type="SINGLE_COLLECTION">
+           <discriminator-field name="type" fieldName="type" />
+    <discriminator-map>
+        <discriminator-mapping value="news" class="Aristos\PlazaBundle\Document\Material\News" />
+        <discriminator-mapping value="video" class="Aristos\PlazaBundle\Document\Material\Video" />
+    </discriminator-map>
+
+         <embed-many fieldName="options" targetDocument="Aristos\PlazaBundle\Document\Option" />
+
+
+        <field fieldName="id" id="true"/>
+        <field fieldName="created_at" type="date"/>
+        <field fieldName="updated_at" type="date"/>
+        <field fieldName="attributes" type="hash"/>
+
+    </document>
+</doctrine-mongo-mapping>
