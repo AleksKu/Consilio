@@ -35,7 +35,7 @@ class DefaultController extends Controller
 
     public function testAction()
     {
-        $dm = $this->get('doctrine.odm.mongodb.document_manager');
+/*        $dm = $this->get('doctrine.odm.mongodb.document_manager');
 
         $products = $dm->getRepository('PlazaBundle:Material')->findAll();
 
@@ -45,6 +45,9 @@ class DefaultController extends Controller
 
 
         }
-        return new Response('ok');
+        return new Response('ok');*/
+
+
+        return $this->render('PlazaBundle:Default:index.html.twig', array('name' => 'alex'));
     }
 }

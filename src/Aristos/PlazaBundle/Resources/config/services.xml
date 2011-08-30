@@ -4,17 +4,26 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--
-    <parameters>
+
+<!--    <parameters>
         <parameter key="plaza.example.class">Aristos\PlazaBundle\Example</parameter>
-    </parameters>
+    </parameters>-->
 
     <services>
-        <service id="plaza.example" class="%plaza.example.class%">
+<!--        <service id="plaza.example" class="%plaza.example.class%">
             <argument type="service" id="service_id" />
             <argument>plain_value</argument>
             <argument>%parameter_name%</argument>
+        </service>-->
+
+                <service id="twig.extension.plaza.widget" class="Aristos\PlazaBundle\Twig\Extension\WidgetExtension" public="true">
+            <tag name="twig.extension" />
+                 <!--   <argument type="service" id="twig.loader" />-->
+            <argument>%twig.options%</argument>
         </service>
     </services>
-    -->
+
+
+
+
 </container>
