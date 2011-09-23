@@ -74,20 +74,20 @@ fos_user:
     firewall_name: main
     user_class: Aristos\ConsilioBundle\Entity\User
 
-fos_comment:
-    db_driver: orm
-    acl: true
-    class:
-        model:
-            comment: Aristos\ConsilioBundle\Entity\Comment
+#fos_comment:
+#    db_driver: orm
+#    acl: true
+#    class:
+#        model:
+#            comment: Aristos\ConsilioBundle\Entity\Comment
 
-    service:
-        blamer:
-            comment: fos_comment.blamer.comment.security
-        manager:
-            thread: fos_comment.manager.thread.acl
-            comment: fos_comment.manager.comment.acl
-            vote: fos_comment.manager.vote.acl
+ #   service:
+ #       blamer:
+ #           comment: fos_comment.blamer.comment.security
+ #       manager:
+ #           thread: fos_comment.manager.thread.acl
+ #           comment: fos_comment.manager.comment.acl
+ #           vote: fos_comment.manager.vote.acl
 
 
         

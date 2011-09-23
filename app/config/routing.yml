@@ -27,5 +27,5 @@ fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /change-password
 
-fos_comment:
-    resource: "@FOSCommentBundle/Resources/config/routing.yml"
+#fos_comment:
+#    resource: "@FOSCommentBundle/Resources/config/routing.yml"

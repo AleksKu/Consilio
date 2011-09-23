@@ -19,7 +19,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
          //   new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new FOS\UserBundle\FOSUserBundle(),
-              new FOS\CommentBundle\FOSCommentBundle(),
+      //        new FOS\CommentBundle\FOSCommentBundle(),
             new Aristos\ConsilioBundle\AristosConsilioBundle(),
             new Aristos\PlazaBundle\PlazaBundle(),
         );
