@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 class DefaultController extends Controller
 {
 
-    public function indexAction()
+    public function indexAction($name = null)
     {
         //  $product = new Material();
         // $product->setType('news');
@@ -18,16 +18,11 @@ class DefaultController extends Controller
 
         $dm = $this->get('doctrine.odm.mongodb.document_manager');
 
-        $products = $dm->getRepository('PlazaBundle:Material')->findAll();
+        $material = $dm->getRepository('PlazaBundle:Material')->find('4e561c2a3def27dc61000000');
+        $material->setAttribute('title','testtitle');
+        echo $material->getAttibute('title');
 
-        foreach ($products as $product)
-        {
-            $option = new \Aristos\PlazaBundle\Document\Option('source', 'habrahabr.ru');
-            //$product->addOption($option);
-
-            $dm->persist($product);
-            $dm->flush();
-        }
+       var_dump($material);
 
 
         return new Response('ok');

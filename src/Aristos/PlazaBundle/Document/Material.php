@@ -95,27 +95,17 @@ class Material
         return $this->updated_at;
     }
 
-
-    public function addOption(\Aristos\PlazaBundle\Document\Option $option)
+    public function setAttribute($key, $value)
     {
-        $this->options[] = $option;
+
     }
 
-    public function getOption($key)
+    public function getAttribute($key)
     {
-        //return $this->options[$key];
-    }
 
-    public function setOptions($options)
-    {
-        $this->options = $options;
     }
 
 
-        public function getOptions()
-    {
-        return $this->options;
-    }
 
 
 }

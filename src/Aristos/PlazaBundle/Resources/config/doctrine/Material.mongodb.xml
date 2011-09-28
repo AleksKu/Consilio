@@ -13,13 +13,13 @@ http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping ">
         <discriminator-mapping value="video" class="Aristos\PlazaBundle\Document\Material\Video" />
     </discriminator-map>
 
-         <embed-many fieldName="options" targetDocument="Aristos\PlazaBundle\Document\Option" />
+ 
 
 
         <field fieldName="id" id="true"/>
         <field fieldName="created_at" type="date"/>
         <field fieldName="updated_at" type="date"/>
-        <field fieldName="attributes" type="hash"/>
+      
 
     </document>
 </doctrine-mongo-mapping>
