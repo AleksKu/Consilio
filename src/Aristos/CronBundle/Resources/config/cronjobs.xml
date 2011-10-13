@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <jobs>
+
+    <job id="test_job">
+      <schedule><cron_expr>0 1 * * *</cron_expr></schedule>
+      <run>
+          <class>Aristos\CronBundle\Example</class>
+          <method>go</method>
+  </run>
+    </job>
+
+</jobs>
+
+        

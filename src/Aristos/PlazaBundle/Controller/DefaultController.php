@@ -18,11 +18,17 @@ class DefaultController extends Controller
 
         $dm = $this->get('doctrine.odm.mongodb.document_manager');
 
+        /* @var \Aristos\PlazaBundle\Document\Material $material  */
         $material = $dm->getRepository('PlazaBundle:Material')->find('4e561c2a3def27dc61000000');
-        $material->setAttribute('title','testtitle');
-        echo $material->getAttibute('title');
 
-       var_dump($material);
+        $material->setCreatedAt(new \DateTime());
+        $material->setUpdatedAt(new \DateTime());
+
+        $material->addParam(12, array(1,4,6,7));
+        $dm->persist($material);
+        $dm->flush();
+
+        var_dump($material->getParams());
 
 
         return new Response('ok');
@@ -30,19 +36,12 @@ class DefaultController extends Controller
 
     public function testAction()
     {
-/*        $dm = $this->get('doctrine.odm.mongodb.document_manager');
-
-        $products = $dm->getRepository('PlazaBundle:Material')->findAll();
-
-        foreach ($products as $product)
-        {
-            var_dump($product);
-
-
-        }
-        return new Response('ok');*/
+        $dm = $this->get('doctrine.odm.mongodb.document_manager');
+        $material = $dm->getRepository('PlazaBundle:Material')->find('4e561c2a3def27dc61000000');
+        var_dump($material->getParams());
 
 
         return $this->render('PlazaBundle:Default:index.html.twig', array('name' => 'alex'));
     }
 }
+

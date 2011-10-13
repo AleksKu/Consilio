@@ -9,56 +9,44 @@ use DateTime;
  */
 class Material
 {
-    /**
-     * @var integer $id
-     */
-    private $id;
+   
+
 
     /**
-     * @var string $type
+     * @var MongoId $id
      */
-    private $type;
+    protected $id;
 
     /**
-     * @var datetime $created_at
+     * @var date $created_at
      */
-    private $created_at;
+    protected $created_at;
 
     /**
-     * @var datetime $updated_at
+     * @var date $updated_at
      */
-    private $updated_at;
+    protected $updated_at;
 
-
- /**
-     *
+    /**
+     * @var hash $params
      */
-    private $options = array();
+    protected $params;
 
-
-    public function _construct()
-    {
-
-        $this->created_at = new DateTime();
-        $this->updated_at = new DateTime();
-
-    }
 
     /**
      * Get id
      *
-     * @return integer
+     * @return id $id
      */
     public function getId()
     {
         return $this->id;
     }
 
-
     /**
      * Set created_at
      *
-     * @param datetime $createdAt
+     * @param date $createdAt
      */
     public function setCreatedAt($createdAt)
     {
@@ -68,7 +56,7 @@ class Material
     /**
      * Get created_at
      *
-     * @return datetime
+     * @return date $createdAt
      */
     public function getCreatedAt()
     {
@@ -78,7 +66,7 @@ class Material
     /**
      * Set updated_at
      *
-     * @param datetime $updatedAt
+     * @param date $updatedAt
      */
     public function setUpdatedAt($updatedAt)
     {
@@ -88,24 +76,37 @@ class Material
     /**
      * Get updated_at
      *
-     * @return datetime
+     * @return date $updatedAt
      */
     public function getUpdatedAt()
     {
         return $this->updated_at;
     }
 
-    public function setAttribute($key, $value)
+    /**
+     * Set params
+     *
+     * @param hash $params
+     */
+    public function setParams($params)
     {
-
+        $this->params = $params;
     }
 
-    public function getAttribute($key)
+
+
+    /**
+     * Get params
+     *
+     * @return hash $params
+     */
+    public function getParams()
     {
-
+        return $this->params;
     }
-
-
-
+    public function addParam($name, $value)
+    {
+        $this->params[$name] = $value;
+    }
 
 }

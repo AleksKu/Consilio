@@ -22,6 +22,7 @@ class AppKernel extends Kernel
       //        new FOS\CommentBundle\FOSCommentBundle(),
             new Aristos\ConsilioBundle\AristosConsilioBundle(),
             new Aristos\PlazaBundle\PlazaBundle(),
+            new Aristos\CronBundle\CronBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
